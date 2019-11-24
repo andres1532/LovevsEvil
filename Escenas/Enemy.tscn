@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Scripts/Enemy.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/OrcoMuerte.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/orcoPunch.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/orcoPunch2.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/OrcoWalk2.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/OrcoWalk.png" type="Texture" id=6]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "dead",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "attack",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "walk",
+"speed": 4.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 9.55376, 19.0039 )
+
+[node name="Enemy" type="KinematicBody2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." groups=[
+"enemy",
+]]
+position = Vector2( 141.369, 99.6742 )
+scale = Vector2( 0.253239, 0.253239 )
+frames = SubResource( 1 )
+animation = "walk"
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 135.93, 100.245 )
+shape = SubResource( 2 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

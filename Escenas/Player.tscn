@@ -1,0 +1,96 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/personaje1.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/PersonajeMuerte1.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/PersonajeMuerte2.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/heroePoder.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Saltando.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Cayendo.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/personajemov2.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/personajemov3.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/personajemov1.png" type="Texture" id=10]
+[ext_resource path="res://Sonidos/Caminar.wav" type="AudioStream" id=11]
+[ext_resource path="res://Sonidos/Salto.wav" type="AudioStream" id=12]
+[ext_resource path="res://Sonidos/fireball.wav" type="AudioStream" id=13]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "dead",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "attack",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "fall",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 10.5141, 12.0028 )
+
+[node name="Player" type="KinematicBody2D" groups=[
+"player",
+]]
+z_index = 1
+script = ExtResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 91.2648, 105.055 )
+scale = Vector2( 0.19341, 0.19341 )
+frames = SubResource( 1 )
+animation = "dead"
+speed_scale = 0.6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 92.7596, 105.144 )
+shape = SubResource( 2 )
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 21, 13 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 160, 90 )
+current = true
+limit_left = 3
+limit_top = -35
+limit_right = 1242
+limit_bottom = 180
+editor_draw_limits = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+volume_db = -10.0
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

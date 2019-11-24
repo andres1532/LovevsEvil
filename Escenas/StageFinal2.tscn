@@ -1,0 +1,215 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Terrenos/Terreno.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/fondofinal.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/vivieronfelices.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/personaje1.1.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/personaje1.2.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/esposa1.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/esposa2.png" type="Texture" id=7]
+[ext_resource path="res://Sonidos/Victory.wav" type="AudioStream" id=8]
+[ext_resource path="res://Escenas/ChangeStage.tscn" type="PackedScene" id=9]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 112.224, 107.061 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="StageFinal2" type="Node2D" groups=[
+"plataforma",
+]]
+
+[node name="Ground" type="Node" parent="."]
+editor/display_folded = true
+
+[node name="Ground" type="Sprite" parent="Ground"]
+editor/display_folded = true
+position = Vector2( 14.2582, 166.447 )
+scale = Vector2( 0.137153, 0.143497 )
+texture = ExtResource( 1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Ground/Ground"]
+position = Vector2( 93.9062, 119.116 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/Ground/StaticBody2D"]
+position = Vector2( -94.9993, -119.495 )
+shape = SubResource( 1 )
+
+[node name="Ground8" type="Sprite" parent="Ground"]
+editor/display_folded = true
+position = Vector2( 134.258, 166.447 )
+scale = Vector2( 0.137153, 0.143497 )
+texture = ExtResource( 1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Ground/Ground8"]
+position = Vector2( 93.9062, 119.116 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/Ground8/StaticBody2D"]
+position = Vector2( -94.9993, -119.495 )
+shape = SubResource( 1 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Ground/Ground8"]
+position = Vector2( 750.108, 119.116 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/Ground8/StaticBody2D2"]
+position = Vector2( -94.9993, -119.495 )
+shape = SubResource( 1 )
+
+[node name="Ground4" type="Sprite" parent="Ground"]
+editor/display_folded = true
+position = Vector2( 74.2582, 166.447 )
+scale = Vector2( 0.137153, 0.143497 )
+texture = ExtResource( 1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Ground/Ground4"]
+position = Vector2( 93.9062, 119.116 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/Ground4/StaticBody2D"]
+position = Vector2( -94.9993, -119.495 )
+shape = SubResource( 1 )
+
+[node name="Ground5" type="Sprite" parent="Ground"]
+editor/display_folded = true
+position = Vector2( 194.258, 166.447 )
+scale = Vector2( 0.137153, 0.143497 )
+texture = ExtResource( 1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Ground/Ground5"]
+position = Vector2( 93.9062, 119.116 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/Ground5/StaticBody2D"]
+position = Vector2( -94.9993, -119.495 )
+shape = SubResource( 1 )
+
+[node name="Ground9" type="Sprite" parent="Ground"]
+editor/display_folded = true
+position = Vector2( 284.258, 166.447 )
+scale = Vector2( 0.137153, 0.143497 )
+texture = ExtResource( 1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Ground/Ground9"]
+position = Vector2( 93.9062, 119.116 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/Ground9/StaticBody2D"]
+position = Vector2( -94.9993, -119.495 )
+shape = SubResource( 1 )
+
+[node name="Ground2" type="Sprite" parent="Ground"]
+editor/display_folded = true
+position = Vector2( 44.2582, 166.447 )
+scale = Vector2( 0.137153, 0.143497 )
+texture = ExtResource( 1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Ground/Ground2"]
+position = Vector2( 93.9062, 119.116 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/Ground2/StaticBody2D"]
+position = Vector2( -94.9993, -119.495 )
+shape = SubResource( 1 )
+
+[node name="Ground6" type="Sprite" parent="Ground"]
+editor/display_folded = true
+position = Vector2( 164.258, 166.447 )
+scale = Vector2( 0.137153, 0.143497 )
+texture = ExtResource( 1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Ground/Ground6"]
+position = Vector2( 93.9062, 119.116 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/Ground6/StaticBody2D"]
+position = Vector2( -94.9993, -119.495 )
+shape = SubResource( 1 )
+
+[node name="Ground10" type="Sprite" parent="Ground"]
+editor/display_folded = true
+position = Vector2( 254.258, 166.447 )
+scale = Vector2( 0.137153, 0.143497 )
+texture = ExtResource( 1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Ground/Ground10"]
+position = Vector2( 93.9062, 119.116 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/Ground10/StaticBody2D"]
+position = Vector2( -94.9993, -119.495 )
+shape = SubResource( 1 )
+
+[node name="Ground3" type="Sprite" parent="Ground"]
+editor/display_folded = true
+position = Vector2( 104.258, 166.447 )
+scale = Vector2( 0.137153, 0.143497 )
+texture = ExtResource( 1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Ground/Ground3"]
+position = Vector2( 93.9062, 119.116 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/Ground3/StaticBody2D"]
+position = Vector2( -94.9993, -119.495 )
+shape = SubResource( 1 )
+
+[node name="Ground7" type="Sprite" parent="Ground"]
+editor/display_folded = true
+position = Vector2( 224.258, 166.447 )
+scale = Vector2( 0.137153, 0.143497 )
+texture = ExtResource( 1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Ground/Ground7"]
+position = Vector2( 93.9062, 119.116 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/Ground7/StaticBody2D"]
+position = Vector2( -94.9993, -119.495 )
+shape = SubResource( 1 )
+
+[node name="Ground11" type="Sprite" parent="Ground"]
+editor/display_folded = true
+position = Vector2( 314.258, 166.447 )
+scale = Vector2( 0.137153, 0.143497 )
+texture = ExtResource( 1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Ground/Ground11"]
+position = Vector2( 93.9062, 119.116 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/Ground11/StaticBody2D"]
+position = Vector2( -94.9993, -119.495 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 162.624, 91.6531 )
+scale = Vector2( 0.0622841, 0.0622841 )
+texture = ExtResource( 2 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 162.085, 49.4583 )
+texture = ExtResource( 3 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 117.773, 132.659 )
+scale = Vector2( 0.282623, 0.282623 )
+frames = SubResource( 2 )
+playing = true
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
+position = Vector2( 195.297, 131.276 )
+scale = Vector2( 0.281607, 0.281607 )
+frames = SubResource( 3 )
+frame = 1
+playing = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+autoplay = true
+
+[node name="ChangeStage" parent="." instance=ExtResource( 9 )]

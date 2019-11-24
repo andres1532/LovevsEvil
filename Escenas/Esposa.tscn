@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/Enemy.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/esposa.png" type="Texture" id=2]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 9.57401, 13.4877 )
+
+[node name="Esposa" type="KinematicBody2D"]
+position = Vector2( -46.5, 22.5 )
+script = ExtResource( 1 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 3 )
+
+[node name="esposa" type="Sprite" parent="."]
+position = Vector2( 183.889, 86.8888 )
+scale = Vector2( 0.239216, 0.239216 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 184.605, 88.9877 )
+shape = SubResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
